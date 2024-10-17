@@ -11,6 +11,8 @@ namespace workshop.wwwapi.Endpoints
     {
         public static void ConfigureCarEndpoint(this WebApplication app)
         {
+            //app.MapGet("/", () => { return TypedResults.Redirect("cars", true); });
+
             var cars = app.MapGroup("cars");
             cars.MapGet("/", GetCars);
             cars.MapPost("/", AddCar).AddEndpointFilter<ValidationFilter<CarPostModel>>();
